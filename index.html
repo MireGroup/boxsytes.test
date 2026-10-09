@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Школа бокса «Пересвет». Москва, Марксистская ул., 9</title>
+<meta name="description" content="Школа бокса «Пересвет» в центре Москвы. Группы для детей и взрослых, индивидуальные тренировки, подготовка к соревнованиям. Тренеры — мастера спорта.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#000;
+  --panel:#0d0d0d;
+  --panel2:#161616;
+  --ink:#fff;
+  --muted:#a6a6a6;
+  --red:#e10613;
+  --red-hi:#ff2a38;
+  --red-lo:#9d030d;
+  --line:rgba(255,255,255,.13);
+  --display:'Russo One','Arial Black',Impact,sans-serif;
+  --body:'Onest','Segoe UI',Roboto,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-transform:uppercase;line-height:1.05;letter-spacing:.01em}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 32px;font-family:var(--display);font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--red);border:0;cursor:pointer;clip-path:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%);transition:background .2s,transform .2s}
+.btn:hover{background:var(--red-hi);transform:translateY(-2px)}
+.btn.line{background:transparent;box-shadow:inset 0 0 0 2px #fff}
+.btn.line:hover{background:#fff;color:#000}
+.btn.sm{min-height:44px;padding:0 24px;font-size:13px}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:rgba(0,0,0,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-size:20px;letter-spacing:.06em}
+.logo svg{width:34px;height:34px}
+.menu{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:15px}
+.menu a{text-decoration:none;color:#d4d4d4;position:relative;padding:6px 0}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--red);transition:width .25s}
+.menu a:hover{color:#fff}.menu a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-tel{font-weight:700;text-decoration:none;white-space:nowrap}
+.burger{display:none;width:44px;height:44px;background:none;border:1px solid var(--line);cursor:pointer;padding:0;position:relative}
+.burger span,.burger span::before,.burger span::after{position:absolute;left:11px;right:11px;height:2px;background:#fff;content:"";transition:transform .25s,top .25s}
+.burger span{top:21px}.burger span::before{left:0;right:0;top:-7px}.burger span::after{left:0;right:0;top:7px}
+.nav.open .burger span{background:transparent}
+.nav.open .burger span::before{top:0;transform:rotate(45deg)}
+.nav.open .burger span::after{top:0;transform:rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:#000;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(700px 500px at 82% 45%,rgba(225,6,19,.28),transparent 70%),
+  repeating-linear-gradient(115deg,rgba(255,255,255,.025) 0 2px,transparent 2px 22px)}
+.hero .wrap{display:grid;grid-template-columns:1.02fr 1fr;gap:30px;align-items:center;padding:110px 0 80px}
+.rating{display:inline-flex;align-items:center;gap:12px;font-size:14.5px;color:#d9d9d9;margin-bottom:26px}
+.rating b{font-family:var(--display);font-weight:400;font-size:20px;background:var(--red);color:#fff;padding:4px 12px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.hero h1{font-size:clamp(46px,7.6vw,104px);line-height:.98}
+.hero h1 em{display:block;font-style:normal;color:var(--red);text-shadow:0 0 60px rgba(225,6,19,.45)}
+.hero .sub{margin-top:26px;font-size:clamp(17px,1.8vw,20px);color:#d0d0d0;max-width:27em}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center;text-decoration:none}
+.scroll::after{content:"";display:block;width:1px;height:34px;margin:8px auto 0;background:linear-gradient(var(--red),transparent);animation:drop 2s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* hero photo 3D */
+.stage{perspective:1200px}
+.hphoto{position:relative;aspect-ratio:1/1.02;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.hphoto.is-moving{transition:transform .08s linear}
+.hphoto .slab{position:absolute;inset:0;clip-path:polygon(14% 0,100% 0,100% 88%,86% 100%,0 100%,0 12%);overflow:hidden;background:#111;transform:translateZ(30px)}
+.hphoto .slab img{width:100%;height:100%;object-fit:cover;object-position:28% 50%;display:block;filter:contrast(1.08) saturate(.95)}
+.hphoto .slab::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 45%),linear-gradient(120deg,rgba(225,6,19,.18),transparent 50%)}
+.hphoto .back{position:absolute;inset:0;transform:translateZ(-40px) translate(26px,26px);clip-path:polygon(14% 0,100% 0,100% 88%,86% 100%,0 100%,0 12%);background:var(--red)}
+.hphoto .frame{position:absolute;inset:-14px;transform:translateZ(70px);clip-path:polygon(14% 0,100% 0,100% 88%,86% 100%,0 100%,0 12%);border:0;pointer-events:none;background:linear-gradient(#fff,#fff) 0 0/100% 2px no-repeat,linear-gradient(#fff,#fff) 100% 0/2px 100% no-repeat;opacity:.55}
+.chip{position:absolute;left:-22px;bottom:34px;transform:translateZ(90px);background:#fff;color:#000;padding:14px 20px;font-family:var(--display);font-size:15px;text-transform:uppercase;line-height:1.2;box-shadow:0 20px 40px rgba(0,0,0,.6);clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%)}
+.chip small{display:block;font-family:var(--body);font-size:13px;text-transform:none;color:#555;margin-top:2px}
+
+/* red band */
+.band{background:var(--red);position:relative}
+.band::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(0,0,0,.08) 0 2px,transparent 2px 22px)}
+.band .wrap{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;padding:46px 0}
+.feat{display:flex;gap:16px;align-items:center}
+.feat .ic{flex:none;width:62px;height:62px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center}
+.feat svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feat strong{display:block;font-family:var(--display);font-weight:400;font-size:16px;text-transform:uppercase;line-height:1.2}
+.feat span{font-size:14px;color:rgba(255,255,255,.88);line-height:1.35;display:block;margin-top:3px}
+
+/* sections */
+section{padding:clamp(70px,9vw,120px) 0}
+.title{text-align:center;margin-bottom:clamp(34px,5vw,56px)}
+.title h2{font-size:clamp(30px,5vw,56px)}
+.title p{color:var(--red);font-size:15px;text-transform:uppercase;letter-spacing:.08em;margin-top:12px;font-weight:500}
+.title::after{content:"";display:block;width:70px;height:4px;background:var(--red);margin:22px auto 0;transform:skewX(-30deg)}
+
+/* directions / tabs */
+.tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+.tab{font-family:var(--display);font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:#d0d0d0;background:var(--panel2);border:1px solid var(--line);padding:14px 24px;cursor:pointer;transition:background .2s,color .2s;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.tab:hover{color:#fff}
+.tab[aria-selected="true"]{background:var(--red);color:#fff;border-color:var(--red)}
+.panel{display:none;grid-template-columns:1.05fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.panel.on{display:grid;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pimg{position:relative;aspect-ratio:3/2;overflow:hidden;background:#111;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1);clip-path:polygon(0 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,0 100%)}
+.pimg.is-moving{transition:transform .08s linear}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block}
+.pimg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent 50%)}
+.ptext h3{font-size:clamp(26px,3.4vw,40px)}
+.ptext .tag{display:inline-block;margin:14px 0 16px;color:var(--red);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em}
+.ptext p{color:#cfcfcf;max-width:32em}
+.pprice{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:26px 0 28px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pprice b{font-family:var(--display);font-weight:400;font-size:clamp(34px,4.4vw,52px);line-height:1}
+.pprice span{color:var(--muted);font-size:15px}
+
+/* form */
+.book{position:relative;background:var(--panel);overflow:hidden}
+.book::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 100% 0,rgba(225,6,19,.22),transparent 70%),radial-gradient(500px 300px at 0 100%,rgba(225,6,19,.12),transparent 70%)}
+.book .wrap{position:relative;max-width:760px}
+form{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+form .full{grid-column:1/-1}
+label{display:block;font-size:13.5px;color:var(--muted);margin-bottom:6px}
+input,select{width:100%;min-height:56px;padding:0 18px;font:inherit;font-size:17px;color:#fff;background:#000;border:1px solid var(--line);border-radius:0;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);background-position:calc(100% - 22px) 25px,calc(100% - 16px) 25px;background-size:6px 6px;background-repeat:no-repeat}
+input::placeholder{color:#666}
+input:focus,select:focus{outline:0;border-color:var(--red);box-shadow:0 0 0 3px rgba(225,6,19,.35)}
+form .btn{width:100%}
+.note{font-size:14px;color:var(--muted);text-align:center;grid-column:1/-1;min-height:1.5em}
+.note a{color:#fff}
+
+/* gallery coverflow */
+.cf{position:relative;perspective:1400px;height:clamp(300px,46vw,520px);margin-bottom:26px}
+.cf-track{position:absolute;inset:0;transform-style:preserve-3d}
+.slide{position:absolute;top:0;left:50%;width:min(66%,760px);height:100%;margin-left:calc(min(66%,760px) / -2);transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s,filter .7s;cursor:pointer;background:#111;overflow:hidden;border:0;padding:0;display:block}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slide::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 2px transparent;transition:box-shadow .4s}
+.slide.cur::after{box-shadow:inset 0 0 0 3px var(--red)}
+.cf-ctrl{display:flex;justify-content:center;align-items:center;gap:20px}
+.arrow{width:54px;height:54px;background:var(--panel2);border:1px solid var(--line);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.arrow:hover{background:var(--red)}
+.arrow svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.dots{display:flex;gap:10px}
+.dots button{width:30px;height:5px;border:0;padding:0;background:#444;cursor:pointer;transform:skewX(-30deg);transition:background .2s}
+.dots button[aria-current="true"]{background:var(--red)}
+
+/* contacts */
+.contacts{background:var(--panel)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:stretch}
+.clist{display:grid;gap:0}
+.clist div{padding:22px 0;border-bottom:1px solid var(--line)}
+.clist div:first-child{border-top:1px solid var(--line)}
+.clist dt{color:var(--muted);font-size:14.5px}
+.clist dd{margin:4px 0 0;font-family:var(--display);font-size:clamp(20px,2.6vw,28px)}
+.clist a{text-decoration:none}.clist a:hover{color:var(--red-hi)}
+.cbtns{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.mapcard{position:relative;min-height:340px;display:grid;place-items:center;text-align:center;padding:30px;overflow:hidden;background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/46px 46px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/46px 46px,
+  radial-gradient(circle,rgba(225,6,19,.35),transparent 62%),#000;
+  border:1px solid var(--line);transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.mapcard.is-moving{transition:transform .08s linear}
+.pin{width:62px;height:62px;border-radius:50% 50% 50% 0;background:var(--red);transform:rotate(-45deg) translateZ(60px);margin:0 auto 34px;display:grid;place-items:center;box-shadow:0 20px 34px rgba(225,6,19,.55)}
+.pin::after{content:"";width:22px;height:22px;border-radius:50%;background:#fff}
+.mapcard strong{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(20px,2.4vw,26px);display:block;transform:translateZ(40px)}
+.mapcard span{color:var(--muted);display:block;margin-top:6px;transform:translateZ(30px)}
+.warn{margin-top:40px;color:var(--muted);font-size:14.5px;text-align:center}
+footer{padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);color:var(--muted);font-size:14.5px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.hero-in{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-in:nth-child(2){animation-delay:.08s}.hero-in:nth-child(3){animation-delay:.16s}.hero-in:nth-child(4){animation-delay:.24s}.hero-in:nth-child(5){animation-delay:.32s}
+@keyframes rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+
+@media (max-width:1020px){
+  .menu,.nav-tel{display:none}
+  .burger{display:block}
+  .nav.open .menu{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#000;border-bottom:1px solid var(--line);padding:8px 20px 20px}
+  .nav.open .menu a{display:block;padding:16px 0;font-size:18px;border-bottom:1px solid var(--line)}
+  .band .wrap{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:96px;gap:46px}
+  .hphoto{max-width:520px;margin:0 auto;width:calc(100% - 30px)}
+  .chip{left:-10px}
+  .panel.on{grid-template-columns:1fr}
+  .cgrid{grid-template-columns:1fr}
+  .scroll{display:none}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .band .wrap{grid-template-columns:1fr;gap:22px;padding:36px 0}
+  form{grid-template-columns:1fr}
+  .tab{padding:12px 16px;font-size:12.5px}
+  .slide{width:78%;margin-left:-39%}
+  .cta .btn{width:100%}
+  .nav-right .btn{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none}
+}
+
+/* ===== mobile adaptation ===== */
+.tabs{position:relative}
+.menu-tel,.callbtn,.dock{display:none}
+.dots button{height:29px;padding:12px 0;background-clip:content-box}
+@keyframes sway{from{transform:rotateY(-7deg) rotateX(3deg)}to{transform:rotateY(7deg) rotateX(-2deg)}}
+@media (hover:none){.hphoto{animation:sway 8s ease-in-out infinite alternate}}
+@media (max-width:1020px){
+  .nav.open .menu-tel{display:block}
+  .nav.open .menu .menu-tel a{color:var(--red-hi);font-family:var(--display);border-bottom:0}
+}
+@media (max-width:860px){
+  .hero{min-height:auto}
+  .hero .wrap{padding:92px 0 56px;gap:44px}
+  .hphoto{width:calc(100% - 24px);max-width:520px;margin:0 auto 0 0}
+  .hphoto .back{transform:translateZ(-40px) translate(16px,16px)}
+  .chip{left:-4px;bottom:22px;padding:12px 16px;font-size:13.5px}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:1fr 1.4fr;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(0,0,0,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);transition:transform .35s ease}
+  .dock.hide{transform:translateY(115%)}
+  .dock .btn{min-height:50px;padding:0 12px;font-size:13.5px}
+}
+@media (max-width:620px){
+  .wrap{width:calc(100% - 32px)}
+  .nav .wrap{height:60px}
+  .logo{font-size:18px;gap:10px}
+  .logo svg{width:30px;height:30px}
+  .callbtn{display:grid;place-items:center;width:44px;height:44px;background:var(--red)}
+  .callbtn svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .hero h1{font-size:clamp(34px,10.4vw,52px)}
+  .hero .sub{font-size:16.5px;margin-top:20px}
+  .rating{margin-bottom:20px;font-size:13.5px;flex-wrap:wrap}
+  .cta{margin-top:26px}
+  section{padding:58px 0}
+  .title{margin-bottom:28px}
+  .title h2{font-size:clamp(26px,8vw,36px)}
+  .title p{font-size:13px}
+  .band .wrap{gap:20px;padding:32px 0}
+  .feat .ic{width:54px;height:54px}
+  .tabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;margin:0 -16px 24px;padding:0 16px 4px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:none;scroll-snap-align:center;min-height:46px;white-space:nowrap}
+  .panel.on{gap:22px}
+  .ptext h3{font-size:24px}
+  .ptext .tag{margin:10px 0 12px;font-size:13.5px}
+  .pprice{margin:20px 0 22px;padding:14px 0}
+  .pprice b{font-size:clamp(28px,8.6vw,40px)}
+  .ptext .btn{width:100%}
+  .cf{height:62vw;min-height:210px}
+  .slide{width:80%;margin-left:-40%}
+  .arrow{width:50px;height:50px}
+  .cbtns .btn{width:100%}
+  .mapcard{min-height:250px;padding:24px}
+  .pin{width:52px;height:52px;margin-bottom:28px}
+  .clist div{padding:18px 0}
+  .warn{margin-top:30px;font-size:13.5px}
+}
+@media (max-width:360px){
+  .logo{font-size:16px}
+  .hero h1{font-size:32px}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Пересвет, на главную">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2l16 6v12c0 9-6.5 15.5-16 18C10.500 35.500 4 29 4 20V8z" fill="#e10613"/><path d="M14 27V13h8.500a4.500 4.500 0 010 9H17" fill="none" stroke="#fff" stroke-width="3.200" stroke-linejoin="round"/></svg>
+      ПЕРЕСВЕТ
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#about">О школе</a></li>
+      <li><a href="#programs">Направления</a></li>
+      <li><a href="#book">Запись</a></li>
+      <li><a href="#gallery">Галерея</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+      <li class="menu-tel"><a href="tel:+79300145250">+7 (930) 014-52-50</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-tel" href="tel:+79300145250">+7 (930) 014-52-50</a>
+      <a class="btn sm" href="#book">Записаться</a>
+      <a class="callbtn" href="tel:+79300145250" aria-label="Позвонить тренеру"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="Школа бокса Пересвет">
+  <div class="wrap">
+    <div>
+      <div class="rating hero-in"><b>4,5</b><span>Хорошее место 2026, 11 оценок</span></div>
+      <h1 class="hero-in">Школа бокса <em>Пересвет</em></h1>
+      <p class="sub hero-in">Тренировки для детей и взрослых в специализированных залах в центре Москвы. Ведут мастера спорта.</p>
+      <div class="cta hero-in">
+        <a class="btn" href="#book">Записаться на тренировку</a>
+        <a class="btn line" href="#programs">Цены и направления</a>
+      </div>
+    </div>
+    <div class="stage hero-in">
+      <div class="hphoto" id="hphoto">
+        <div class="back"></div>
+        <div class="slab"><img src="boxer-and-coach.webp" alt="Юный боксёр в красной экипировке на тренировке с тренером" width="928" height="600"></div>
+        <div class="frame"></div>
+        <div class="chip">Бокс для детей и взрослых<small>Марксистская ул., 9</small></div>
+      </div>
+    </div>
+  </div>
+  <a class="scroll" href="#about">Листайте вниз</a>
+</section>
+
+<div class="band" id="about">
+  <div class="wrap">
+    <div class="feat rv"><div class="ic"><svg viewBox="0 0 32 32"><path d="M16 3l3.800 7.700 8.500 1.200-6.200 6 1.500 8.500L16 22.400 8.400 26.400l1.500-8.500-6.200-6 8.500-1.200z"/></svg></div><div><strong>Профессионализм</strong><span>Тренеры — мастера спорта с высшим педагогическим образованием</span></div></div>
+    <div class="feat rv"><div class="ic"><svg viewBox="0 0 32 32"><circle cx="11" cy="10" r="4"/><circle cx="22" cy="12" r="3"/><path d="M3 27c0-5 3.500-8 8-8s8 3 8 8M20 20c4 0 9 1.500 9 7"/></svg></div><div><strong>Дети и взрослые</strong><span>Занимаются в одном зале, в своих группах</span></div></div>
+    <div class="feat rv"><div class="ic"><svg viewBox="0 0 32 32"><path d="M5 27V17M13 27V9M21 27V14M29 27V5"/></svg></div><div><strong>Любой уровень</strong><span>От новичков до мастеров</span></div></div>
+    <div class="feat rv"><div class="ic"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1.500"/></svg></div><div><strong>Персональные тренировки</strong><span>Один спортсмен, один тренер</span></div></div>
+  </div>
+</div>
+
+<section id="programs">
+  <div class="wrap">
+    <div class="title rv"><h2>Направления</h2><p>Групповые и персональные тренировки</p></div>
+    <div class="tabs rv" role="tablist" aria-label="Направления">
+      <button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true">Группа</button>
+      <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">Персональные</button>
+      <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Детский бокс</button>
+      <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Разовая</button>
+    </div>
+    <div class="stage rv">
+      <div class="panel on" role="tabpanel" id="p0" aria-labelledby="t0">
+        <div class="pimg"><img src="kids-sparring.webp" alt="Группа юных боксёров на спарринге в зале" loading="lazy"></div>
+        <div class="ptext">
+          <h3>Тренировки в группе</h3>
+          <span class="tag">Для детей и взрослых, 18 часов</span>
+          <p>От новичков до мастеров. Подготовка и участие в соревнованиях. Специализированные залы бокса в центре Москвы. Тренеры — мастера спорта с высшим педагогическим образованием.</p>
+          <div class="pprice"><b>8 000 ₽</b><span>за 18 часов, около 444 ₽ в час</span></div>
+          <a class="btn" href="#book" data-dir="Тренировки в группе">Записаться</a>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+        <div class="pimg"><img src="girl-punching-bag.webp" alt="Спортсменка отрабатывает удар по мешку" loading="lazy"></div>
+        <div class="ptext">
+          <h3>Индивидуальные тренировки</h3>
+          <span class="tag">1 спортсмен, 1 тренер</span>
+          <p>Чётко проработаем вашу технику атакующих и защитных действий в боксе. Правильно подберём уровень физической нагрузки в зависимости от особенностей организма. Составим план питания.</p>
+          <div class="pprice"><b>3 500 ₽</b><span>за 1 занятие</span></div>
+          <a class="btn" href="#book" data-dir="Индивидуальные тренировки">Записаться</a>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+        <div class="pimg"><img src="junior-boxer-ropes.webp" alt="Юный боксёр в синем шлеме у канатов ринга" loading="lazy"></div>
+        <div class="ptext">
+          <h3>Тренировки по боксу для детей</h3>
+          <span class="tag">12 занятий</span>
+          <p>Специализированные залы в центре Москвы, профессиональные тренеры. Подготовка к соревнованиям и участие в них.</p>
+          <div class="pprice"><b>Цена по запросу</b><span>уточните у тренера</span></div>
+          <a class="btn" href="#book" data-dir="Детский бокс">Записаться</a>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+        <div class="pimg"><img src="boxer-and-coach.webp" alt="Боксёр в красной экипировке в стойке" loading="lazy"></div>
+        <div class="ptext">
+          <h3>Тренировка по боксу</h3>
+          <span class="tag">1 академический час</span>
+          <p>Для детей и взрослых. Специализированные залы в центре Москвы, профессиональные тренеры. Подготовка и участие в соревнованиях.</p>
+          <div class="pprice"><b>1 000 ₽</b><span>за 1 академический час</span></div>
+          <a class="btn" href="#book" data-dir="Разовая тренировка">Записаться</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap">
+    <div class="title rv"><h2>Записаться</h2><p>Оставьте данные, и мы свяжемся с вами</p></div>
+    <form id="form" class="rv" novalidate>
+      <div><label for="f-name">Имя</label><input id="f-name" name="name" placeholder="Как вас зовут" autocomplete="name" required></div>
+      <div><label for="f-tel">Телефон</label><input id="f-tel" name="tel" type="tel" inputmode="tel" placeholder="+7" autocomplete="tel" required></div>
+      <div class="full"><label for="f-dir">Направление</label>
+        <select id="f-dir" name="dir">
+          <option>Тренировки в группе</option>
+          <option>Индивидуальные тренировки</option>
+          <option>Детский бокс</option>
+          <option>Разовая тренировка</option>
+        </select>
+      </div>
+      <div class="full"><button class="btn" type="submit">Записаться на тренировку</button></div>
+      <p class="note" id="note" role="status">Есть противопоказания. Посоветуйтесь с врачом.</p>
+    </form>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="title rv"><h2>Галерея</h2><p>Фотографии с тренировок</p></div>
+    <div class="cf rv" id="cf" aria-roledescription="карусель" aria-label="Фотографии с тренировок">
+      <div class="cf-track" id="cfTrack">
+        <button class="slide" aria-label="Фото 1"><img src="girl-punching-bag.webp" alt="Спортсменка бьёт по мешку"></button>
+        <button class="slide" aria-label="Фото 2"><img src="kids-sparring.webp" alt="Дети на спарринге"></button>
+        <button class="slide" aria-label="Фото 3"><img src="boxer-and-coach.webp" alt="Боксёр в стойке на тренировке"></button>
+        <button class="slide" aria-label="Фото 4"><img src="junior-boxer-ropes.webp" alt="Юный боксёр у канатов ринга"></button>
+      </div>
+    </div>
+    <div class="cf-ctrl rv">
+      <button class="arrow" id="prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="dots" id="dots"></div>
+      <button class="arrow" id="next" aria-label="Вперёд"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <div class="title rv"><h2>Контакты</h2><p>Приходите в зал</p></div>
+    <div class="cgrid">
+      <div class="rv">
+        <dl class="clist" style="margin:0">
+          <div><dt>Адрес</dt><dd>Москва, Марксистская ул., 9</dd></div>
+          <div><dt>Тренер</dt><dd><a href="tel:+79300145250">+7 (930) 014-52-50</a></dd></div>
+          <div><dt>Рейтинг</dt><dd>4,5 из 5, 11 оценок</dd></div>
+        </dl>
+        <div class="cbtns">
+          <a class="btn" href="tel:+79300145250">Позвонить тренеру</a>
+          <a class="btn line" href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9C%D0%B0%D1%80%D0%BA%D1%81%D0%B8%D1%81%D1%82%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB.%2C%209" target="_blank" rel="noopener">Построить маршрут</a>
+        </div>
+      </div>
+      <div class="stage rv">
+        <div class="mapcard" id="mapcard"><div><div class="pin"></div><strong>Марксистская ул., 9</strong><span>Центр Москвы</span></div></div>
+      </div>
+    </div>
+    <p class="warn">Есть противопоказания. Посоветуйтесь с врачом.</p>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Школа бокса «Пересвет»</span><span>Москва, Марксистская ул., 9</span></div></footer>
+
+<div class="dock" id="dock"><a class="btn line" href="tel:+79300145250">Позвонить</a><a class="btn" href="#book">Записаться</a></div>
+
+<script>
+
+/* mobile menu */
+(function(){
+  var nav=document.getElementById('nav'),b=document.getElementById('burger');
+  b.addEventListener('click',function(){var o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o);});
+  document.querySelectorAll('#menu a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');b.setAttribute('aria-expanded',false);});});
+})();
+
+/* reveal */
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.1});
+  els.forEach(function(e,i){e.style.transitionDelay=((i%4)*70)+'ms';io.observe(e)});
+})();
+
+/* 3D tilt */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||matchMedia('(hover: none)').matches)return;
+  function tilt(el,rx,ry){
+    el.addEventListener('pointermove',function(ev){
+      var r=el.getBoundingClientRect(),px=(ev.clientX-r.left)/r.width,py=(ev.clientY-r.top)/r.height;
+      el.classList.add('is-moving');
+      el.style.transform='rotateX('+((.5-py)*rx)+'deg) rotateY('+((px-.5)*ry)+'deg)';
+    });
+    el.addEventListener('pointerleave',function(){el.classList.remove('is-moving');el.style.transform='';});
+  }
+  tilt(document.getElementById('hphoto'),10,16);
+  tilt(document.getElementById('mapcard'),12,14);
+  document.querySelectorAll('.pimg').forEach(function(e){tilt(e,8,10)});
+})();
+
+/* tabs */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.panel'));
+  function sel(i,focus){
+    tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i);t.tabIndex=k===i?0:-1;});
+    panels.forEach(function(p,k){p.hidden=k!==i;p.classList.toggle('on',k===i);});
+    var bar=document.querySelector('.tabs');
+    if(bar.scrollWidth>bar.clientWidth){bar.scrollTo({left:tabs[i].offsetLeft-(bar.clientWidth-tabs[i].offsetWidth)/2,behavior:'smooth'});}
+    if(focus)tabs[i].focus({preventScroll:true});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){sel(i)});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight')sel((i+1)%tabs.length,true);
+      if(e.key==='ArrowLeft')sel((i-1+tabs.length)%tabs.length,true);
+    });
+  });
+  document.querySelectorAll('[data-dir]').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('f-dir').value=a.dataset.dir;});
+  });
+})();
+
+/* form: opens an SMS to the trainer */
+(function(){
+  var f=document.getElementById('form'),note=document.getElementById('note');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=f.name.value.trim(),t=f.tel.value.trim();
+    if(!n||t.replace(/\D/g,'').length<10){note.textContent='Укажите имя и телефон, чтобы мы могли перезвонить.';note.style.color='#ff6b75';(n?f.tel:f.name).focus();return;}
+    var msg='Здравствуйте! Хочу записаться на тренировку. Направление: '+f.dir.value+'. Меня зовут '+n+', телефон '+t+'.';
+    note.style.color='';
+    note.innerHTML='Открываем сообщение тренеру. Если не открылось, позвоните: <a href="tel:+79300145250">+7 (930) 014-52-50</a>';
+    location.href='sms:+79300145250?body='+encodeURIComponent(msg);
+  });
+})();
+
+/* 3D coverflow gallery */
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')),n=slides.length,cur=0,dots=document.getElementById('dots');
+  slides.forEach(function(_,i){var b=document.createElement('button');b.setAttribute('aria-label','Фото '+(i+1));b.addEventListener('click',function(){go(i)});dots.appendChild(b);});
+  function go(i){cur=(i+n)%n;render();}
+  function render(){
+    var narrow=innerWidth<620;
+    slides.forEach(function(s,i){
+      var o=i-cur;if(o>n/2)o-=n;if(o<-n/2)o+=n;
+      var a=Math.abs(o);
+      s.style.transform='translateX('+(o*(narrow?58:56))+'%) translateZ('+(-a*170)+'px) rotateY('+(-o*30)+'deg)';
+      s.style.zIndex=10-a;s.style.opacity=a>1?0:1-a*.35;
+      s.style.filter=a?'brightness(.45) grayscale(.4)':'none';
+      s.style.pointerEvents=a>1?'none':'auto';
+      s.classList.toggle('cur',a===0);
+      s.setAttribute('aria-hidden',a!==0);
+    });
+    [].forEach.call(dots.children,function(d,i){d.setAttribute('aria-current',i===cur);});
+  }
+  slides.forEach(function(s,i){s.addEventListener('click',function(){go(i)});});
+  document.getElementById('prev').addEventListener('click',function(){go(cur-1)});
+  document.getElementById('next').addEventListener('click',function(){go(cur+1)});
+  var sx=null,cf=document.getElementById('cf');
+  cf.addEventListener('pointerdown',function(e){sx=e.clientX});
+  cf.addEventListener('pointerup',function(e){if(sx===null)return;var d=e.clientX-sx;if(Math.abs(d)>40)go(cur+(d<0?1:-1));sx=null;});
+  addEventListener('resize',render);render();
+})();
+/* hide the mobile dock while the form is on screen */
+(function(){
+  var d=document.getElementById('dock'),b=document.getElementById('book');
+  if(!d||!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(es){d.classList.toggle('hide',es[0].isIntersecting);},{threshold:.25}).observe(b);
+})();
+</script>
+</body>
+</html>
